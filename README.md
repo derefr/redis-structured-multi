@@ -22,7 +22,7 @@ Just require `redis_structured_multi`, then you can do something like this:
       end
     end
 
-Under the covers, this is a single Redis pipeline. Even though we're able to do things like `left_handed && right_handed`, or `set_members + other_set_members`, we're really just transforming promises into other promises. Here's the strategy:
+Under the covers, this is a single Redis pipeline. Even though we're able to do things like `redis_bool && other_redis_bool`, or `redis_set_members + static_set_members`, we're really just transforming promises into other promises. Here's the strategy:
 
 1. Execute a bunch of Redis commands; receive promises in exchange.
 2. Build the structure you want out of data you have, plus these promises.
