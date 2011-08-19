@@ -10,14 +10,16 @@ Just require `redis_structured_multi`, then you can do something like this:
 
     full_records = REDIS.structured_multi do
       records.map do |record|
-        interests = (REDIS.smembers("user:#{record[:name]}:smembers") + [record[:likes]]).to_set
         last_visit = REDIS.get("user:#{record[:name]}:lastvisittime").to_i
+
+        likes = (REDIS.smembers("user:#{record[:name]}:likes") + [record[:likes]]).to_set
         
         left_handed = REDIS.get("user:#{record[:name]}:has:hand:left")
         right_handed = REDIS.get("user:#{record[:name]}:has:hand:right")
+
         record.merge(
-          :interests => interests,
           :last_visit => last_visit,
+          :likes => likes,
           :has_both_hands => (left_handed && right_handed))
       end
     end
