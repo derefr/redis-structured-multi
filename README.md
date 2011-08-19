@@ -1,4 +1,4 @@
-`redis-structured-multi` is a Ruby library for assembling Redis's multibulk replies (from the [redis-rb gem](https://github.com/ezmobius/redis-rb)'s `Redis#multi`) into objects, before they're actually returned, by using futures, thunks, and a Ruby implementation of `fmap`.
+`redis-structured-multi` is a Ruby library for assembling Redis's multibulk replies (from the [redis-rb gem](https://github.com/ezmobius/redis-rb)'s `Redis#multi`) into objects, before they're actually returned, by using promises, thunks, and a Ruby implementation of `fmap`.
 
 Just require `redis_structured_multi`, then you can do something like this:
 
@@ -24,7 +24,7 @@ Just require `redis_structured_multi`, then you can do something like this:
 
 Under the covers, this is a single Redis pipeline. Even though we're able to do things like `left_handed && right_handed`, or `set_members + other_set_members`, we're really just transforming promises into other promises. Here's the strategy:
 
-1. Execute a bunch of redis commands; receive promises in exchange.
+1. Execute a bunch of Redis commands; receive promises in exchange.
 2. Build the structure you want out of data you have, plus these promises.
 3. Return this structure as the value of the `structured_multi` block.
 
