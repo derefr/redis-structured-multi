@@ -1,6 +1,6 @@
-`redis-structured-multi` is a Ruby library for assembling Redis's multibulk replies (from the [redis-rb gem](https://github.com/ezmobius/redis-rb)'s `Redis#multi`) into objects, before they're actually returned, by using promises, thunks, and a Ruby implementation of `fmap`.
+`redis-structured-multi` is a Ruby library for assembling Redis's multibulk replies (from the [redis-rb gem](http://github.com/ezmobius/redis-rb)'s `Redis#multi`) into objects, before they're actually returned, by using promises, thunks, and [fmap](http://github.com/derefr/fmap).
 
-Just require `redis_structured_multi`, then you can do something like this:
+Just require `redis/structured-multi`, then you can do something like this:
 
     records = [
       {:name => 'bob', :height => 180, :likes => 'carrots'},
