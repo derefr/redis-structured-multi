@@ -35,7 +35,8 @@ class Redis
 
       def ===( o )
         if o.kind_of? Receipt
-          @pipeline.equal?(o.pipeline)
+          receipt_pipeline = o.instance_variable_get(:@pipeline)
+          @pipeline.equal?(receipt_pipeline)
         else
           super
         end

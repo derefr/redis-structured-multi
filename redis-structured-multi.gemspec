@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name = %q{redis-structured-multi}
-  s.version = "0.0.1"
-  s.date = %q{2011-08-22}
+  s.version = "0.0.2"
+  s.date = %q{2011-09-01}
   s.authors = ["Sean Keith McAuley"]
   s.email = %q{sean@zarokeanpie.com}
   s.summary = %q{redis-structured-multi extends the redis gem's Redis#multi to allow data structures to be built from promises before data is fetched}
